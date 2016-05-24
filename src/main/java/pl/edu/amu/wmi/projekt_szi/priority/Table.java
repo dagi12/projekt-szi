@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pl.edu.amu.wmi.projekt_szi.lifecycle;
+package pl.edu.amu.wmi.projekt_szi.priority;
 
 
 import pl.edu.amu.wmi.projekt_szi.model.AbstractField;
@@ -22,6 +22,18 @@ public class Table extends AbstractField implements Comparable<Table> {
     }
 
     private Timer timer = new Timer();
+
+    public void setRichness(Richness richness) {
+        this.richness = richness;
+    }
+
+    public Timer getTimer() {
+        return timer;
+    }
+
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
 
     private Richness richness;
 
@@ -51,23 +63,29 @@ public class Table extends AbstractField implements Comparable<Table> {
         this.priority = priority;
     }
 
-    public Integer getRichness() {
-        return richness.getI();
+    public Richness getRichness() {
+        return richness;
+    }
+
+    @Override
+    public boolean isWalkable() {
+        return false;
     }
 
     public enum Richness {
 
-        LOW(1), MEDIUM(2), HIGH(3);
+        POOR(1), MEDIUM(2), RICH(3);
 
-        public int getI() {
-            return i;
+        public int getValue() {
+            return value;
         }
 
-        private int i;
+        private int value;
 
-        Richness(int i) {
-            this.i = i;
+        Richness(int value) {
+            this.value = value;
         }
+
     }
 
 

@@ -1,8 +1,10 @@
 package pl.edu.amu.wmi.projekt_szi;
 
-import pl.edu.amu.wmi.projekt_szi.lifecycle.TableStatusController;
 import pl.edu.amu.wmi.projekt_szi.model.Map;
-import pl.edu.amu.wmi.projekt_szi.priority.FuzzyLogicServiceHandler;
+import pl.edu.amu.wmi.projekt_szi.movement.WaiterMovementController;
+import pl.edu.amu.wmi.projekt_szi.priority.TableStatusController;
+import pl.edu.amu.wmi.projekt_szi.util.RunnableController;
+import pl.edu.amu.wmi.projekt_szi.view.WindowManager;
 
 public class Application {
 
@@ -20,13 +22,14 @@ public class Application {
         }
 
         void start() {
-            FuzzyLogicServiceHandler fuzzyLogicServiceHandler = new FuzzyLogicServiceHandler();
-            TableStatusController tableStatusController = new TableStatusController(map.getTABLES());
-
+            RunnableController.setEnd(false);
+            WindowManager windowManager = new WindowManager();
+            WaiterMovementController waiterMovementController = new WaiterMovementController(map, windowManager);
+            TableStatusController tableStatusController = new TableStatusController(map.getTables());
 //        DiagnosticWindow.main(args);
-            Thread mainFuzzyLogicThread = new Thread(fuzzyLogicServiceHandler);
+            Thread waiterMovementThread = new Thread(waiterMovementController);
             Thread tableWaitingThread = new Thread(tableStatusController);
-            mainFuzzyLogicThread.start();
+            waiterMovementThread.start();
             tableWaitingThread.start();
         }
 

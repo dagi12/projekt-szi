@@ -1,13 +1,21 @@
 package pl.edu.amu.wmi.projekt_szi;
 
+import pl.edu.amu.wmi.projekt_szi.movement.Waiter;
+
 public interface ApplicationConstants {
 
-    static final String  FCL_FILE_NAME = "res/fieldHandling.fcl";
+    String  FCL_FILE_NAME = "res/fieldHandling.fcl";
 
-    static final boolean VERBOSE_MODE = true;
+    boolean VERBOSE_MODE = true;
 
-    static final int WIDTH = 16;
+    int WIDTH = 16;
 
-    static final int HEIGHT = 16;
+    int HEIGHT = 16;
+
+    int WAITER_START_X = 1;
+
+    int WAITER_START_Y = 1;
+
+    Waiter.Direction WAITER_START_DIRECTION = Waiter.Direction.RIGHT;
 
 }

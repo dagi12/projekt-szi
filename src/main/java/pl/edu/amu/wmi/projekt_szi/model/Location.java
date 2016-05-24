@@ -11,6 +11,11 @@ public class Location implements Comparable<Location> {
 
     int y;
 
+    public Location(Location location) {
+        this.x = location.getX();
+        this.y = location.getY();
+    }
+
     public int getX() {
         return x;
     }

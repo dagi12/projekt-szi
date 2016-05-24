@@ -1,4 +1,4 @@
-package pl.edu.amu.wmi.projekt_szi.priority;
+package pl.edu.amu.wmi.projekt_szi.decision;
 
 /**
  * Created by lupus on 15.05.16.

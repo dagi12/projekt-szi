@@ -3,7 +3,9 @@ package pl.edu.amu.wmi.projekt_szi.model;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class AbstractField {
+public abstract class AbstractField {
+
+    protected static final int TILE_SIZE = 80;
 
     public Location getLocation() {
         return location;
@@ -21,7 +23,7 @@ public class AbstractField {
         this.fieldType = fieldType;
     }
 
-    private Location location;
+    private volatile Location location;
 
     private FieldType fieldType;
 
@@ -34,8 +36,8 @@ public class AbstractField {
         FLOOR, WAITER, TABLE;
     }
 
-    public void draw(Graphics g, BufferedImage bufferedImage) {
+    public abstract void draw(Graphics g);
 
-    }
+    public abstract boolean isWalkable();
 
 }
