@@ -45,45 +45,45 @@ RULEBLOCK No1
 	ACCU : MAX;			
 
 
-	RULE 1 : IF richness IS low AND time IS short AND distance IS veryClose THEN priority IS extreme;
-	RULE 2 : IF richness IS low AND time IS low AND distance IS veryClose THEN priority IS veryHigh;
-	RULE 3 : IF richness IS low AND time IS optimal AND distance IS veryClose THEN priority IS high;
+	RULE 1 : IF richness IS poor AND time IS short AND distance IS veryClose THEN priority IS extreme;
+	RULE 2 : IF richness IS poor AND time IS short AND distance IS veryClose THEN priority IS veryHigh;
+	RULE 3 : IF richness IS poor AND time IS medium AND distance IS veryClose THEN priority IS high;
 	RULE 4 : IF richness IS medium AND time IS short AND distance IS veryClose THEN priority IS veryHigh;
-	RULE 5 : IF richness IS medium AND time IS low AND distance IS veryClose THEN priority IS medium;
-	RULE 6 : IF richness IS medium AND time IS optimal AND distance IS veryClose THEN priority IS low;
-	RULE 7 : IF richness IS optimal AND time IS short AND distance IS veryClose THEN priority IS high;
-	RULE 8 : IF richness IS optimal AND time IS low AND distance IS veryClose THEN priority IS low;
-	RULE 9 : IF richness IS optimal AND time IS optimal AND distance IS veryClose THEN priority IS nearlyZero;
+	RULE 5 : IF richness IS medium AND time IS short AND distance IS veryClose THEN priority IS medium;
+	RULE 6 : IF richness IS medium AND time IS medium AND distance IS veryClose THEN priority IS low;
+	RULE 7 : IF richness IS rich AND time IS short AND distance IS veryClose THEN priority IS high;
+	RULE 8 : IF richness IS rich AND time IS short AND distance IS veryClose THEN priority IS low;
+	RULE 9 : IF richness IS rich AND time IS medium AND distance IS veryClose THEN priority IS nearlyZero;
 	
-	RULE 10 : IF richness IS low AND time IS short AND distance IS close THEN priority IS veryHigh;
-	RULE 11 : IF richness IS low AND time IS low AND distance IS close THEN priority IS high;
-	RULE 12 : IF richness IS low AND time IS optimal AND distance IS close THEN priority IS medium;
+	RULE 10 : IF richness IS poor AND time IS short AND distance IS close THEN priority IS veryHigh;
+	RULE 11 : IF richness IS poor AND time IS short AND distance IS close THEN priority IS high;
+	RULE 12 : IF richness IS poor AND time IS medium AND distance IS close THEN priority IS medium;
 	RULE 13 : IF richness IS medium AND time IS short AND distance IS close THEN priority IS high;
-	RULE 14 : IF richness IS medium AND time IS low AND distance IS close THEN priority IS low;
-	RULE 15 : IF richness IS medium AND time IS optimal AND distance IS close THEN priority IS low;
-	RULE 16 : IF richness IS optimal AND time IS short AND distance IS close THEN priority IS medium;
-	RULE 17 : IF richness IS optimal AND time IS low AND distance IS close THEN priority IS low;
-	RULE 18 : IF richness IS optimal AND time IS optimal AND distance IS close THEN priority IS nearlyZero;
+	RULE 14 : IF richness IS medium AND time IS short AND distance IS close THEN priority IS low;
+	RULE 15 : IF richness IS medium AND time IS medium AND distance IS close THEN priority IS low;
+	RULE 16 : IF richness IS rich AND time IS short AND distance IS close THEN priority IS medium;
+	RULE 17 : IF richness IS rich AND time IS short AND distance IS close THEN priority IS low;
+	RULE 18 : IF richness IS rich AND time IS medium AND distance IS close THEN priority IS nearlyZero;
 	
-	RULE 19 : IF richness IS low AND time IS short AND distance IS fairlyFar THEN priority IS high;
-	RULE 20 : IF richness IS low AND time IS low AND distance IS fairlyFar THEN priority IS medium;
-	RULE 21 : IF richness IS low AND time IS optimal AND distance IS fairlyFar THEN priority IS low;
+	RULE 19 : IF richness IS poor AND time IS short AND distance IS fairlyFar THEN priority IS high;
+	RULE 20 : IF richness IS poor AND time IS short AND distance IS fairlyFar THEN priority IS medium;
+	RULE 21 : IF richness IS poor AND time IS medium AND distance IS fairlyFar THEN priority IS low;
 	RULE 22 : IF richness IS medium AND time IS short AND distance IS fairlyFar THEN priority IS medium;
-	RULE 23 : IF richness IS medium AND time IS low AND distance IS fairlyFar THEN priority IS low;
-	RULE 24 : IF richness IS medium AND time IS optimal AND distance IS fairlyFar THEN priority IS nearlyZero;
-	RULE 25 : IF richness IS optimal AND time IS short AND distance IS fairlyFar THEN priority IS low;
-	RULE 26 : IF richness IS optimal AND time IS low AND distance IS fairlyFar THEN priority IS nearlyZero;
-	RULE 27 : IF richness IS optimal AND time IS optimal AND distance IS fairlyFar THEN priority IS nearlyZero;
+	RULE 23 : IF richness IS medium AND time IS short AND distance IS fairlyFar THEN priority IS low;
+	RULE 24 : IF richness IS medium AND time IS medium AND distance IS fairlyFar THEN priority IS nearlyZero;
+	RULE 25 : IF richness IS rich AND time IS short AND distance IS fairlyFar THEN priority IS low;
+	RULE 26 : IF richness IS rich AND time IS short AND distance IS fairlyFar THEN priority IS nearlyZero;
+	RULE 27 : IF richness IS rich AND time IS medium AND distance IS fairlyFar THEN priority IS nearlyZero;
 	
-	RULE 28 : IF richness IS low AND time IS short AND distance IS veryFar THEN priority IS medium;
-	RULE 29 : IF richness IS low AND time IS low AND distance IS veryFar THEN priority IS low;
-	RULE 30 : IF richness IS low AND time IS optimal AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 28 : IF richness IS poor AND time IS short AND distance IS veryFar THEN priority IS medium;
+	RULE 29 : IF richness IS poor AND time IS short AND distance IS veryFar THEN priority IS low;
+	RULE 30 : IF richness IS poor AND time IS medium AND distance IS veryFar THEN priority IS nearlyZero;
 	RULE 31 : IF richness IS medium AND time IS short AND distance IS veryFar THEN priority IS low;
-	RULE 32 : IF richness IS medium AND time IS low AND distance IS veryFar THEN priority IS nearlyZero;
-	RULE 33 : IF richness IS medium AND time IS optimal AND distance IS veryFar THEN priority IS nearlyZero;
-	RULE 34 : IF richness IS optimal AND time IS short AND distance IS veryFar THEN priority IS nearlyZero;
-	RULE 35 : IF richness IS optimal AND time IS low AND distance IS veryFar THEN priority IS nearlyZero;
-	RULE 36 : IF richness IS optimal AND time IS optimal AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 32 : IF richness IS medium AND time IS short AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 33 : IF richness IS medium AND time IS medium AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 34 : IF richness IS rich AND time IS short AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 35 : IF richness IS rich AND time IS short AND distance IS veryFar THEN priority IS nearlyZero;
+	RULE 36 : IF richness IS rich AND time IS medium AND distance IS veryFar THEN priority IS nearlyZero;
 END_RULEBLOCK
 
 END_FUNCTION_BLOCK

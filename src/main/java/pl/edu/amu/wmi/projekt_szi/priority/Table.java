@@ -9,7 +9,41 @@ package pl.edu.amu.wmi.projekt_szi.priority;
 import pl.edu.amu.wmi.projekt_szi.model.AbstractField;
 import pl.edu.amu.wmi.projekt_szi.util.Timer;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public class Table extends AbstractField implements Comparable<Table> {
+
+    private static final String SERVED_TABLE_PATH = "res/servedTable.png";
+
+    private static final String WAITING_TABLE_PATH = "res/waitingTable.png";
+
+    private static BufferedImage waitingTable;
+
+    private static BufferedImage servedTable;
+
+    private final Timer timer = new Timer();
+
+    private final Richness richness;
+
+    private double priority;
+
+    private boolean waiting;
+
+    public Table(Richness richness, Integer x, Integer y) {
+        super(x, y, FieldType.TABLE);
+        this.waiting = false;
+        this.richness = richness;
+        try {
+            waitingTable = ImageIO.read(new File(WAITING_TABLE_PATH));
+            servedTable = ImageIO.read(new File(SERVED_TABLE_PATH));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public int compareTo(Table o) {
@@ -21,24 +55,6 @@ public class Table extends AbstractField implements Comparable<Table> {
         return timer.getCurrentTime();
     }
 
-    private Timer timer = new Timer();
-
-    public void setRichness(Richness richness) {
-        this.richness = richness;
-    }
-
-    public Timer getTimer() {
-        return timer;
-    }
-
-    public void setTimer(Timer timer) {
-        this.timer = timer;
-    }
-
-    private Richness richness;
-
-    private Double priority;
-
     public boolean isWaiting() {
         return waiting;
     }
@@ -48,18 +64,11 @@ public class Table extends AbstractField implements Comparable<Table> {
         this.waiting = waiting;
     }
 
-    private boolean waiting;
-
-    public Table(Richness r, Integer x, Integer y) {
-        super(x, y, FieldType.TABLE);
-        this.waiting = false;
-    }
-
-    public Double getPriority() {
+    public double getPriority() {
         return priority;
     }
 
-    public void setPriority(Double priority) {
+    public void setPriority(double priority) {
         this.priority = priority;
     }
 
@@ -68,22 +77,31 @@ public class Table extends AbstractField implements Comparable<Table> {
     }
 
     @Override
+    public void draw(Graphics g) {
+        if (waiting) {
+            g.drawImage(waitingTable, TILE_SIZE * getLocation().getX(), TILE_SIZE * getLocation().getY(), null);
+        } else {
+            g.drawImage(servedTable, TILE_SIZE * getLocation().getX(), TILE_SIZE * getLocation().getY(), null);
+        }
+    }
+
+    @Override
     public boolean isWalkable() {
-        return false;
+        return true;
     }
 
     public enum Richness {
 
         POOR(1), MEDIUM(2), RICH(3);
 
-        public int getValue() {
-            return value;
-        }
-
-        private int value;
+        private final int value;
 
         Richness(int value) {
             this.value = value;
+        }
+
+        public int getValue() {
+            return value;
         }
 
     }

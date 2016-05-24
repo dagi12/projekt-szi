@@ -7,12 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.TreeMap;
 
-/**
- * Created by softra43 on 20.04.2016.
- */
 public class WindowManager extends JFrame {
-
-    PanelExt panelExt;
 
     public WindowManager(TreeMap<Location, AbstractField> treeMap) {
         super();
@@ -20,7 +15,7 @@ public class WindowManager extends JFrame {
         setSize(1024, 768);
         setBackground(Color.WHITE);
 
-        panelExt = new PanelExt(treeMap);
+        PanelExt panelExt = new PanelExt(treeMap);
         panelExt.setBackground(new Color(73, 207, 86));
         Container c = getContentPane();
         c.add(panelExt);

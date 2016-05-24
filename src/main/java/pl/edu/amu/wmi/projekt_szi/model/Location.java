@@ -7,43 +7,36 @@ package pl.edu.amu.wmi.projekt_szi.model;
 
 public class Location implements Comparable<Location> {
 
-    int x;
+    private final int x;
 
-    int y;
+    private final int y;
 
     public Location(Location location) {
         this.x = location.getX();
         this.y = location.getY();
     }
 
-    public int getX() {
-        return x;
+    public Location(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public int getX() {
+        return x;
     }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
 
-    public Location(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-    
     public Double getEuclideanDistanceTo(Location location) {
         Double a = Math.abs((double) (location.getX() - this.x));
         Double b = Math.abs((double) (location.getY() - this.y));
         return Math.sqrt((a * a + b * b));
 
     }
-    
+
     public int getManhattanDistanceTo(Location location) {
         int a = Math.abs(location.getX() - this.x);
         int b = Math.abs(location.getY() - this.y);

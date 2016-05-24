@@ -8,16 +8,13 @@ import java.util.TreeMap;
 public class WaiterDecisionController {
 
 
-    private TreeMap<String, LevelledDecision> decisions;
+    private final TreeMap<String, LevelledDecision> decisions;
 
-    private DecisionEvaluator decisionEvaluator;
+    private final DecisionEvaluator decisionEvaluator;
 
     private Table servedTable;
 
-    private Waiter waiter;
-
     public WaiterDecisionController(Waiter waiter) {
-        this.waiter = waiter;
         decisions = new TreeMap<>();
         decisionEvaluator = new DecisionEvaluator();
         decisions.put("TIME", LevelledDecision.UNKNOWN);
@@ -28,9 +25,8 @@ public class WaiterDecisionController {
     }
 
     public void makeServeDecision() {
-        LevelledDecision l = decisionEvaluator.classifyTableDecision(servedTable.getRichness(), servedTable.getTime());
-        System.out.println("irrDec: " + l);
-        switch (l) {
+        LevelledDecision levelledDecision = decisionEvaluator.classifyTableDecision(servedTable.getRichness(), servedTable.getTime());
+        switch (levelledDecision) {
             case HEAVY:
                 serve();
                 break;
@@ -45,11 +41,11 @@ public class WaiterDecisionController {
             default:
                 break;
         }
-        decisions.put("TIME", l);
+        decisions.put("TIME", levelledDecision);
     }
 
     private void serve() {
-
+        servedTable.setWaiting(false);
     }
 
     public TreeMap<String, LevelledDecision> getDecisions() {

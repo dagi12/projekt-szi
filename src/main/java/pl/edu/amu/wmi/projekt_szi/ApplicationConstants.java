@@ -4,7 +4,7 @@ import pl.edu.amu.wmi.projekt_szi.movement.Waiter;
 
 public interface ApplicationConstants {
 
-    String  FCL_FILE_NAME = "res/fieldHandling.fcl";
+    String FCL_FILE_NAME = "res/fieldHandling.fcl";
 
     boolean VERBOSE_MODE = true;
 

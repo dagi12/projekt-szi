@@ -27,17 +27,9 @@ public class Waiter extends AbstractField implements ApplicationConstants {
         this.direction = WAITER_START_DIRECTION;
     }
 
-    public Direction getDirection() {
-        return direction;
-    }
-
-    public void setDirection(Direction direction) {
-        this.direction = direction;
-    }
-
     @Override
     public void draw(Graphics g) {
-        g.drawImage(waiterImage, TILE_SIZE * getLocation().getX(), getLocation().getY(), null);
+        g.drawImage(waiterImage, TILE_SIZE * getLocation().getX(), TILE_SIZE * getLocation().getY(), null);
     }
 
     @Override

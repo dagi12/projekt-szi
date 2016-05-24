@@ -5,16 +5,15 @@
  */
 package pl.edu.amu.wmi.projekt_szi.priority;
 
-import java.io.IOException;
-
 import net.sourceforge.jFuzzyLogic.FIS;
 import pl.edu.amu.wmi.projekt_szi.ApplicationConstants;
 import pl.edu.amu.wmi.projekt_szi.model.Location;
-import pl.edu.amu.wmi.projekt_szi.movement.Waiter;
 
-import static net.sourceforge.jFuzzyLogic.FIS.*;
+import java.io.IOException;
 
-public class FuzzyLogicService implements ApplicationConstants {
+import static net.sourceforge.jFuzzyLogic.FIS.load;
+
+class FuzzyLogicService implements ApplicationConstants {
 
     private final FIS fuzzyLogicHandler;
 

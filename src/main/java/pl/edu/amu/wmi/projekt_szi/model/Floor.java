@@ -1,7 +1,5 @@
 package pl.edu.amu.wmi.projekt_szi.model;
 
-import pl.edu.amu.wmi.projekt_szi.model.AbstractField;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,7 +8,7 @@ import java.io.IOException;
 
 public class Floor extends AbstractField {
 
-    private static final String FLOOR_IMAGE_PATH = "res/drzewo.png";
+    private static final String FLOOR_IMAGE_PATH = "res/floor.png";
 
     private static BufferedImage floorImage;
 

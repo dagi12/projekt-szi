@@ -6,18 +6,14 @@ import pl.edu.amu.wmi.projekt_szi.ApplicationConstants;
 import pl.edu.amu.wmi.projekt_szi.model.AbstractField;
 import pl.edu.amu.wmi.projekt_szi.model.Location;
 
-import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
-/**
- * Created by eryk on 23.05.16.
- */
-public class WaiterMovementNavigationGrid extends NavigationGrid<GridCell> implements ApplicationConstants {
-
-    private GridCell[][] gridCell = new GridCell[7][7];
+class WaiterMovementNavigationGrid extends NavigationGrid<GridCell> implements ApplicationConstants {
 
     public WaiterMovementNavigationGrid(TreeMap<Location, AbstractField> treeMap) {
-        for (Entry<Location,? extends AbstractField> entry : treeMap.entrySet()) {
+        GridCell[][] gridCell = new GridCell[16][16];
+        for (Entry<Location, ? extends AbstractField> entry : treeMap.entrySet()) {
             int x = entry.getValue().getLocation().getX();
             int y = entry.getValue().getLocation().getY();
             gridCell[x][y] = new GridCell(x, y, entry.getValue().isWalkable());

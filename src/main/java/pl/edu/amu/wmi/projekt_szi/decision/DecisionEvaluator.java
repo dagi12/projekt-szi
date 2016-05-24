@@ -8,11 +8,11 @@ import weka.core.Instance;
 import weka.core.Instances;
 import weka.core.converters.ConverterUtils.DataSource;
 
-public class DecisionEvaluator {
+class DecisionEvaluator {
 
     private static final String FILE_DECISION_MAKER_PATH = "res/decisionMaker.arff";
 
-    private Classifier decisionTree;
+    private final Classifier decisionTree;
 
     private Instances decisionTrainSet;
 
@@ -29,7 +29,7 @@ public class DecisionEvaluator {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        decisionTrainSet.setClassIndex(3);
+        decisionTrainSet.setClassIndex(2);
         decisionTree = new LMT();
         // decisionTree = new J48();
         try {

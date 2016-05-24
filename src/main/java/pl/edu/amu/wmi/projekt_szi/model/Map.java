@@ -13,7 +13,7 @@ import java.util.TreeMap;
 
 public class Map extends Observable {
 
-    public List<Table> TABLES = Arrays.asList(
+    private final List<Table> TABLES = Arrays.asList(
             new Table(Richness.POOR, 0, 2),
             new Table(Richness.POOR, 1, 2),
             new Table(Richness.POOR, 2, 2),
@@ -25,9 +25,9 @@ public class Map extends Observable {
             new Table(Richness.POOR, 6, 4)
     );
 
-    private volatile TreeMap<Location, AbstractField> treeMap;
+    private final Waiter waiter;
 
-    private Waiter waiter;
+    private TreeMap<Location, AbstractField> treeMap;
 
     public Map() {
         this.waiter = new Waiter();
@@ -43,7 +43,7 @@ public class Map extends Observable {
         return TABLES;
     }
 
-    private synchronized void generateFields() {
+    private void generateFields() {
         Table table;
         for (int x = 0; x < 15; x++) {
             for (int y = 0; y < 15; y++) {
@@ -55,12 +55,11 @@ public class Map extends Observable {
                 }
             }
         }
-        setChanged();
-        notifyObservers(treeMap);
+        treeMap.put(waiter.getLocation(), waiter);
     }
 
 
-    public synchronized AbstractField getFieldAt(Location location) {
+    public AbstractField getFieldAt(Location location) {
         return treeMap.get(location);
     }
 

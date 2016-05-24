@@ -2,10 +2,8 @@ package pl.edu.amu.wmi.projekt_szi.util;
 
 import pl.edu.amu.wmi.projekt_szi.model.AbstractField;
 import pl.edu.amu.wmi.projekt_szi.model.Location;
-import pl.edu.amu.wmi.projekt_szi.priority.Table;
 
 import java.util.List;
-import java.util.Map;
 
 public class LocationFinder {
 
